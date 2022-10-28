@@ -1,0 +1,29 @@
+{
+  "stages": [
+    {
+      "action": "difference",
+      "params": {
+        "dimension": $options.item.dimension
+      }
+    },
+    {
+      "action": "template",
+      "params": {
+        "template": {
+          "meta": {},
+          "name": "$data.name",
+          "valueTypes": [
+            {
+              "unit": "$data.valueTypes[$options.item.dimension].unit",
+              "name": "Differenz $data.valueTypes[$options.item.dimension].name",
+              "type": "Number"
+            }
+          ],
+          "id": "${data.id}_${options.item.dimension}_diff",
+          "source": "$data.source",
+          "user": "$data.source"
+        }
+      }
+    }
+  ]
+}
