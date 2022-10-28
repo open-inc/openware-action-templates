@@ -1,0 +1,11 @@
+{
+            "extra": {},
+            "formFields": [],
+            "type": "persist",
+            "topic": ".",
+            "target": "transform",
+            "label": "Differenz zu letztem Wert speichern",
+            "payload": "{\n  \"stages\": [\n    {\n      \"action\": \"difference\",\n      \"params\": {\n        \"dimension\": $options.item.dimension,\n        \"laterValuesFirst\":true\n      }\n    },\n    {\n      \"action\": \"template\",\n      \"params\": {\n        \"template\": {\n          \"meta\": {},\n          \"name\": \"$data.name\",\n          \"valueTypes\": [\n            {\n              \"unit\": \"$data.valueTypes[$options.item.dimension].unit\",\n              \"name\": \"Differenz $data.valueTypes[$options.item.dimension].name\",\n              \"type\": \"Number\"\n            }\n          ],\n          \"id\": \"${data.id}_${options.item.dimension}_diff\",\n          \"source\": \"$data.source\",\n          \"user\": \"$data.source\"\n        }\n      }\n    }\n  ]\n}",
+            "templateType": "VTL",
+            
+        }
